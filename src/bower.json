@@ -1,0 +1,16 @@
+{
+  "name": "jannick-reymann.de",
+  "version": "0.0.0",
+  "authors": [
+    "Jannick Reymann <ratze@reymann-online.com>"
+  ],
+  "license": "MIT",
+  "homepage": "jannick-reymann.de",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
