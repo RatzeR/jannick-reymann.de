@@ -7,7 +7,7 @@ Klone das Repository und installiere alle Abhängigkeiten:
 
 ```sh
 $ git clone git@github.com:RatzeR/jannick-reymann.de.git
-$ cd shopbro-frontend
+$ cd jannick-reymann.de
 $ npm install
 $ bower install
 ```
