@@ -2,5 +2,7 @@
 src/node_modules
 src/bower_components
 bower_components
-dist
+dist/assets
+dist/img
+dist/js
 node_modules
