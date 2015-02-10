@@ -19,7 +19,7 @@ module.exports = function (grunt) {
     // Project settings
     conf: {
       src: 'src/',
-      dist: 'dist/',
+      dist: 'dist',
       vendor: {
         css: [
 //          'vendor/normalize-css/normalize.css'
@@ -59,9 +59,8 @@ module.exports = function (grunt) {
     sass: {
       build: {
         options: {
-          outputStyle: 'compressed',
-          sourceComments: 'none',
-          sourceMap: 'sass'
+          style: 'nested',
+          sourcemap: 'auto'
         },
         files: {
           '<%= conf.dist %>/assets/css/main.css': '<%= conf.src %>/scss/main.scss',
@@ -86,9 +85,8 @@ module.exports = function (grunt) {
       },
       js: {
         src: [
-          '<%= conf.vendor.js %>',
-          '<%= conf.src %>/js/**/*.js',
-
+//          '<%= conf.vendor.js %>',
+//          '<%= conf.src %>/js/**/*.js',
         ],
         dest: '<%= conf.dist %>/assets/js/main.js'
       }
@@ -207,7 +205,6 @@ module.exports = function (grunt) {
       gruntfile: ['Gruntfile.js'],
       js: [
         '<%= conf.src %>/app/**/*.js',
-        '!<%= conf.src %>/app/webtrekk_v3.js'
       ]
     },
 
@@ -233,7 +230,7 @@ module.exports = function (grunt) {
   // Default task.
   grunt.registerTask('default', function () {
     grunt.task.run([
-//      'jshint',
+      'jshint',
       'clean',
       'copy',
       'sass',
@@ -246,12 +243,17 @@ module.exports = function (grunt) {
     grunt.log.writeln('Run `grunt serve` to open the project in your browser.');
   });
 
-  grunt.registerTask('serve', [
-    'default',
-    'browserSync',
-    'watch'
-  ]);
-
+  grunt.registerTask('serve', function () {
+    grunt.task.run([
+      'clean',
+      'copy',
+      'sass',
+      'autoprefixer',
+      'browserSync',
+      'watch'
+    ]);
+  }); 
+  
   grunt.registerTask('help', [
     'open:help'
   ]);
